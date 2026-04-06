@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olde Florida Tree Service LLC | Premium Tree Care & Land Clearing</title>
+    <meta name="description" content="Southwest Florida's most trusted, luxurious tree service. Full tree service, pruning, palm cleaning, and land clearing. 100% Recommended.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (CDN for single-file deployment) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0f0d',     // Almost black with green tint
+                            forest: '#0f291e',   // Deep luxurious forest green
+                            gold: '#d4af37',     // Premium gold
+                            gold_light: '#f3e5ab',
+                            gray: '#1a221f',
+                            light: '#e2e8f0'
+                        }
+                    },
+                    backgroundImage: {
+                        'site-bg': "linear-gradient(to bottom, rgba(10, 15, 13, 0.93), rgba(10, 15, 13, 0.97)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2000&auto=format&fit=crop')",
+                        'hero-pattern': "linear-gradient(to bottom, rgba(10, 15, 13, 0.2), rgba(10, 15, 13, 0.95)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop')",
+                        'wood-pattern': "linear-gradient(to right, rgba(15, 41, 30, 0.95), rgba(10, 15, 13, 0.98)), url('https://images.unsplash.com/photo-1516027660205-021966aeb216?q=80&w=2000&auto=format&fit=crop')"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations & Refinements */
+        body {
+            background-color: #0a0f0d;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        .glass-nav {
+            background: rgba(10, 15, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #d4af37, #f3e5ab, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card {
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card img {
+            transition: transform 0.7s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Sexy Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0f0d; }
+        ::-webkit-scrollbar-thumb { background: #0f291e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-brand-dark bg-site-bg bg-fixed bg-cover bg-center">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex flex-col">
+                        <span class="font-serif text-2xl md:text-3xl font-bold gold-gradient-text uppercase tracking-widest">Olde Florida</span>
+                        <span class="font-sans text-xs md:text-sm tracking-[0.3em] text-gray-400 uppercase">Tree Service LLC</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider">Services</a>
+                    <a href="#about" class="text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider">About</a>
+                    <a href="#reviews" class="text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider">Reviews</a>
+                    <a href="tel:+19412607363" class="group relative px-6 py-3 font-semibold text-brand-dark bg-brand-gold overflow-hidden rounded-sm transition-all hover:scale-105">
+                        <span class="relative z-10 flex items-center gap-2">
+                            <i class="fas fa-phone-alt"></i> (941) 260-7363
+                        </span>
+                        <div class="absolute inset-0 h-full w-full bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-gold focus:outline-none text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-b border-brand-gold/20">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center">
+                <a href="#services" class="block py-3 text-base font-medium hover:text-brand-gold uppercase tracking-wider mobile-link">Services</a>
+                <a href="#about" class="block py-3 text-base font-medium hover:text-brand-gold uppercase tracking-wider mobile-link">About</a>
+                <a href="#reviews" class="block py-3 text-base font-medium hover:text-brand-gold uppercase tracking-wider mobile-link">Reviews</a>
+                <a href="tel:+19412607363" class="mt-4 inline-block px-8 py-3 font-semibold text-brand-dark bg-brand-gold rounded-sm w-full text-center">
+                    <i class="fas fa-phone-alt mr-2"></i> (941) 260-7363
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat pt-20">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto w-full mt-16 md:mt-0">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-gold/30 bg-brand-dark/50 backdrop-blur-sm mb-8 fade-in-up">
+                <div class="flex text-brand-gold text-xs">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="text-xs font-semibold tracking-wider uppercase text-white">100% Recommended on Facebook</span>
+            </div>
+            
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 fade-in-up shadow-black drop-shadow-2xl" style="transition-delay: 100ms;">
+                <span class="block text-white">Elevating Florida's</span>
+                <span class="gold-gradient-text italic">Finest Landscapes</span>
+            </h1>
+            
+            <p class="font-sans text-lg md:text-2xl text-gray-100 font-medium max-w-3xl mx-auto mb-10 leading-relaxed fade-in-up drop-shadow-lg" style="transition-delay: 200ms;">
+                Luxurious, compliant, and diligent tree care. We specialize in precision pruning, flawless cleanups, and comprehensive land management.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in-up" style="transition-delay: 300ms;">
+                <a href="tel:+19412607363" class="w-full sm:w-auto px-10 py-4 font-sans font-bold text-brand-dark bg-brand-gold hover:bg-white transition-colors duration-300 rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.3)] flex items-center justify-center gap-3">
+                    <i class="fas fa-phone-alt"></i> Request Free Quote
+                </a>
+                <a href="#services" class="w-full sm:w-auto px-10 py-4 font-sans font-semibold text-white border border-brand-gold/50 hover:bg-brand-gold/10 transition-colors duration-300 rounded-sm backdrop-blur-sm bg-black/20">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10 hidden md:block">
+            <a href="#about" class="text-brand-gold/70 hover:text-brand-gold transition-colors drop-shadow-md">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Social Proof Bar -->
+    <section class="border-y border-white/10 bg-brand-gray/80 backdrop-blur-md py-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-16 text-center text-sm md:text-base font-medium tracking-widest uppercase text-gray-300">
+            <div class="flex items-center gap-3">
+                <i class="fab fa-facebook-f text-brand-gold"></i>
+                <span>26+ 5-Star Reviews</span>
+            </div>
+            <div class="flex items-center gap-3 hidden sm:flex">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+            </div>
+            <div class="flex items-center gap-3">
+                <i class="fas fa-leaf text-brand-gold"></i>
+                <span>Fully Compliant & Insured</span>
+            </div>
+            <div class="flex items-center gap-3 hidden md:flex">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+            </div>
+            <div class="flex items-center gap-3">
+                <i class="fab fa-tiktok text-brand-gold"></i>
+                <a href="https://www.tiktok.com/@olde.florida.tree" target="_blank" class="hover:text-white transition-colors">@olde.florida.tree</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Trust Section -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-forest rounded-full mix-blend-screen filter blur-[100px] opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative fade-in-up">
+                    <div class="absolute inset-0 bg-brand-gold transform translate-x-4 translate-y-4 rounded-sm"></div>
+                    <img src="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/472789807_596454489800860_3171226307632998016_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=2a1932&_nc_ohc=liHDjldGNIEQ7kNvwHn6-BC&_nc_oc=AdpkfnZOQtw6rTlR8wxV2o1z2lGtS7G--m1viRF6n7U7E7xuR4tGlLSgRIJMT_Eu3HLYk4aaD08noypGUpjbbXmI&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=IPPO0lWlRFZZrOuCE4RNdQ&_nc_ss=7a3a8&oh=00_Af30TfcuTiM1NR1Fm-7CJIwKJpyKCJZn0kGUKzmjAvCM2A&oe=69D93A19" alt="Arborist examining a tree" class="relative z-10 w-full h-[500px] object-cover rounded-sm shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div class="order-1 lg:order-2 fade-in-up bg-brand-dark/40 p-8 rounded-lg backdrop-blur-sm border border-white/5">
+                    <h4 class="text-brand-gold font-sans font-semibold tracking-widest uppercase mb-4 text-sm">The Olde Florida Standard</h4>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 leading-tight">Knowledgeable. Compliant.<br><span class="italic text-gray-400">Diligent.</span></h2>
+                    <p class="text-gray-300 font-light leading-relaxed mb-6 text-lg">
+                        Led by Max Cohen, Olde Florida Tree Service LLC was built on a simple premise: delivering impeccable results while exceeding customer expectations every single time.
+                    </p>
+                    <p class="text-gray-300 font-light leading-relaxed mb-10 text-lg">
+                        Whether it's the meticulous care of your historic oaks, shaping high-end palms, or executing complex land clearing, our team brings precision, safety, and an absolute commitment to leaving your property cleaner than we found it.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
+                        <div>
+                            <h3 class="font-serif text-3xl font-bold text-brand-gold mb-2">100%</h3>
+                            <p class="text-xs uppercase tracking-widest text-gray-400">Customer Satisfaction</p>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-3xl font-bold text-brand-gold mb-2">24/7</h3>
+                            <p class="text-xs uppercase tracking-widest text-gray-400">Emergency Response</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-wood-pattern bg-cover bg-center bg-fixed relative">
+        <div class="absolute inset-0 bg-brand-dark/90"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center mb-20 fade-in-up">
+                <h4 class="text-brand-gold font-sans font-semibold tracking-widest uppercase mb-4 text-sm">Our Expertise</h4>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-white">Premium Services</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card group relative h-[400px] overflow-hidden rounded-sm cursor-pointer fade-in-up border border-white/10">
+                    <img src="https://plus.unsplash.com/premium_photo-1663099204210-60a136fef963?q=80&w=1217&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Full Tree Service" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center mb-6 text-brand-gold bg-brand-dark/50 backdrop-blur-sm">
+                            <i class="fas fa-tree text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-white">Full Tree Service</h3>
+                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Comprehensive care for the health, beauty, and longevity of your property's most valuable natural assets.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card group relative h-[400px] overflow-hidden rounded-sm cursor-pointer fade-in-up border border-white/10" style="transition-delay: 100ms;">
+                    <img src="https://plus.unsplash.com/premium_photo-1661751889999-762ee67f68fa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pruning & Uplifts" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center mb-6 text-brand-gold bg-brand-dark/50 backdrop-blur-sm">
+                            <i class="fas fa-cut text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-white">Pruning & Uplifts</h3>
+                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Precision architectural pruning to enhance structural integrity, allow light penetration, and elevate curb appeal.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card group relative h-[400px] overflow-hidden rounded-sm cursor-pointer fade-in-up border border-white/10" style="transition-delay: 200ms;">
+                    <img src="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/548185085_793470360099271_1953650935802302260_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=bdFR0GgJgm0Q7kNvwFqCkZq&_nc_oc=Adq70O3WiSW0LJ_M6XmHfh9l95ywrXBIvwtEZVo52-6lRg7LPHVONjo4D9fohxIldblsVaDixEFIXEevWFtmtaMP&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=l7xpS8KTe2vuib6RNEI_Ug&_nc_ss=7a3a8&oh=00_Af0LFzL7W4str3hxLVPj-Kx4HWRInNhCFjk1b5UEqv9ypQ&oe=69D91E82" alt="Palm Clean" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center mb-6 text-brand-gold bg-brand-dark/50 backdrop-blur-sm">
+                            <i class="fab fa-pagelines text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-white">Palm Clean & Care</h3>
+                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Florida's signature flora requires specialized care. We provide meticulous boot removal, skinning, and frond clearing.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card group relative h-[400px] overflow-hidden rounded-sm cursor-pointer fade-in-up border border-white/10">
+                    <img src="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/493037946_680587928054182_2989933526623343095_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=wCsrmJHhblUQ7kNvwGDy45U&_nc_oc=AdryFAhUpEUWm9THqUxi7Wu2KSrbNFfcvG3a3SL2jRGjZnOS-gBW-p18egRpoKatD6z7eSisKwtflNsdc6LW4dhI&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=qpYTq30COriyR2pc-Mi9Hw&_nc_ss=7a3a8&oh=00_Af0Wd58RegBgPmu0A4E7PiShF91mec7FgiHihhXvscvU8g&oe=69D946E5" alt="Tree Removal" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center mb-6 text-brand-gold bg-brand-dark/50 backdrop-blur-sm">
+                            <i class="fas fa-exclamation-triangle text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-white">Safe Tree Removal</h3>
+                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Strategic, zero-impact removal of hazardous or dead trees, protecting your property's surrounding landscaping.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card group relative h-[400px] overflow-hidden rounded-sm cursor-pointer fade-in-up border border-white/10" style="transition-delay: 100ms;">
+                    <img src="https://plus.unsplash.com/premium_photo-1678344180733-45d4f98b2093?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Land Clearing" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center mb-6 text-brand-gold bg-brand-dark/50 backdrop-blur-sm">
+                            <i class="fas fa-tractor text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-white">Land Clearing</h3>
+                        <p class="text-gray-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Heavy-duty site preparation. From brush clearing to complete lot leveling, we prepare your canvas.</p>
+                    </div>
+                </div>
+
+                <!-- Action Card -->
+                <div class="group relative h-[400px] overflow-hidden rounded-sm bg-brand-forest flex flex-col items-center justify-center text-center p-8 border border-brand-gold/40 hover:border-brand-gold transition-colors fade-in-up" style="transition-delay: 200ms;">
+                    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-gold/10 to-transparent"></div>
+                    <h3 class="relative z-10 font-serif text-3xl font-bold text-white mb-6">Need Immediate Assistance?</h3>
+                    <p class="relative z-10 text-gray-300 font-light text-sm mb-8">We provide rapid response quotes and scheduling for all properties.</p>
+                    <a href="tel:+19412607363" class="relative z-10 px-8 py-4 font-sans font-bold text-brand-dark bg-brand-gold hover:bg-white transition-colors duration-300 rounded-sm">
+                        Call (941) 260-7363
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Proof -->
+    <section id="reviews" class="py-24 relative bg-brand-dark/80 backdrop-blur-md border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 lg:gap-24 items-center">
+                
+                <div class="w-full md:w-1/3 fade-in-up">
+                    <div class="inline-flex items-center gap-3 text-brand-gold mb-6 text-2xl">
+                        <i class="fab fa-facebook"></i>
+                        <span class="font-bold text-white text-4xl">5.0</span>
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">100%<br>Recommended</h2>
+                    <p class="text-gray-400 font-light text-lg mb-8">Based on 26 impeccable reviews. Our reputation is built on delivering beyond expectations, property after property.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-brand-gold hover:text-white transition-colors font-semibold uppercase tracking-widest text-sm border-b border-brand-gold pb-1">
+                        Experience it yourself <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <div class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Review 1 -->
+                    <div class="bg-brand-gray/90 border border-white/10 p-8 rounded-sm hover:border-brand-gold/40 transition-colors fade-in-up">
+                        <div class="flex text-brand-gold text-sm mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="font-sans font-light text-gray-300 leading-relaxed mb-6 italic">"It's a pleasure to leave a review for Olde Florida Tree Service. I have used Max's services for my palms, oaks and even removal. Each time he has exceeded my expectations and always cleans up well. Max is knowledgeable, compliant, diligent..."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-forest flex items-center justify-center text-brand-gold font-serif font-bold text-lg">E</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Erika Soller Cohen</h4>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider">Facebook Recommendation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-brand-gray/90 border border-white/10 p-8 rounded-sm hover:border-brand-gold/40 transition-colors fade-in-up" style="transition-delay: 100ms;">
+                        <div class="flex text-brand-gold text-sm mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="font-sans font-light text-gray-300 leading-relaxed mb-6 italic">"Max and his team understood exactly what my tree required, they came to my home evaluated what needed to be done gave me a quote and came back and performed the work flawlessly."</p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-brand-forest flex items-center justify-center text-brand-gold font-serif font-bold text-lg">C</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Coby Meyer</h4>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider">Facebook Recommendation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Mega CTA / Contact -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center bg-fixed filter grayscale blur-[2px]"></div>
+        <div class="absolute inset-0 bg-brand-forest/90 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center fade-in-up">
+            <h2 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6">Ready for <span class="gold-gradient-text italic">Perfection?</span></h2>
+            <p class="text-xl text-gray-300 font-light mb-12 drop-shadow-md">Contact Olde Florida Tree Service today for a complimentary evaluation and secure your property's aesthetic and safety.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="tel:+19412607363" class="group flex items-center justify-center gap-4 w-full sm:w-auto px-12 py-5 font-sans text-lg font-bold text-brand-dark bg-brand-gold hover:bg-white transition-colors duration-300 rounded-sm shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                    <i class="fas fa-phone-alt text-xl group-hover:animate-bounce"></i> 
+                    (941) 260-7363
+                </a>
+                <a href="mailto:oldefloridatreeservices@gmail.com" class="flex items-center justify-center gap-3 w-full sm:w-auto px-12 py-5 font-sans text-lg font-semibold text-white border border-brand-gold/50 hover:bg-brand-gold/10 transition-colors duration-300 rounded-sm backdrop-blur-md bg-black/40">
+                    <i class="far fa-envelope"></i> Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="inline-flex flex-col mb-6">
+                        <span class="font-serif text-2xl font-bold text-brand-gold uppercase tracking-widest">Olde Florida</span>
+                        <span class="font-sans text-xs tracking-[0.3em] text-gray-500 uppercase">Tree Service LLC</span>
+                    </a>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed max-w-xs">
+                        Premium tree care, precision pruning, and flawless land clearing for Southwest Florida's finest properties.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-serif text-lg font-bold mb-6 uppercase tracking-wider">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-brand-gold transition-colors text-sm uppercase tracking-wider">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-brand-gold transition-colors text-sm uppercase tracking-wider">About Max</a></li>
+                        <li><a href="#reviews" class="text-gray-400 hover:text-brand-gold transition-colors text-sm uppercase tracking-wider">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-serif text-lg font-bold mb-6 uppercase tracking-wider">Connect</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="tel:+19412607363" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition-colors">
+                                <i class="fas fa-phone-alt w-5"></i>
+                                <span>(941) 260-7363</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:oldefloridatreeservices@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition-colors">
+                                <i class="far fa-envelope w-5"></i>
+                                <span>oldefloridatreeservices@gmail.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@olde.florida.tree" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-brand-gold transition-colors">
+                                <i class="fab fa-tiktok w-5"></i>
+                                <span>@olde.florida.tree</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-xs uppercase tracking-widest text-center md:text-left">
+                    &copy; <span id="year"></span> Olde Florida Tree Service LLC. All rights reserved.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.tiktok.com/@olde.florida.tree" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-gold hover:text-brand-dark transition-all">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-gold hover:text-brand-dark transition-all">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar styling on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.style.background = 'rgba(10, 15, 13, 0.95)';
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.style.background = 'rgba(10, 15, 13, 0.85)';
+            }
+        });
+
+        // Scroll Animation Observer (Fade In Up)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Run once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
